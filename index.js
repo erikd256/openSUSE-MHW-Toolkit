@@ -5,7 +5,8 @@ var shell = require('shelljs');
 var wget = require('node-wget');
 var prompt = require('prompt-sync')({
     history: require('prompt-sync-history')() //open history file
-});  
+});
+const fs = require('fs');
 /* 
     Possible flags 
 
@@ -34,9 +35,16 @@ if (arguments.init){
     shell.mkdir(chrootDir+"/config");
     shell.mkdir(chrootDir+"/build");
     shell.mkdir(chrootDir+"/install");
-    if (shell.exec("git clone https://github.com/erikd256/openSUSE-MHW.git " + chrootDir+"/sources", {silent:true})!==0){
-        console.log("git clone failed");
-    };
+    if (fs.existsSync(chrootDir+"/sources")) {
+        shell.cd(chrootDir+"/sources");
+        if (shell.exec("git fetch", {silent:true})!==0){
+            console.log("git clone failed");
+        };
+    } else {
+        if (shell.exec("git clone https://github.com/erikd256/openSUSE-MHW.git " + chrootDir+"/sources", {silent:true})!==0){
+            console.log("git clone failed");
+        };
+    }
     var flavour = prompt("Flavour used for device (TumbleWeed-AARCH64 | TumbleWeed-ARMv7 | Leap-AARCH64 | Leap-ARMv7 | TumbleWeed-ARMv6) : ");
     switch (flavour) {
     case 'TumbleWeed-AARCH64':
