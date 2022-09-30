@@ -1,0 +1,22 @@
+{
+  "name": "geeko",
+  "version": "1.0.0",
+  "description": "openSUSE hardware adaption toolkit for linux-kernel mobile based devices",
+  "repository": "https://github.com/erikd256/openSUSE-MHW-Toolkit.git",
+  "author": "erikd256 <62072464+erikd256@users.noreply.github.com>",
+  "main": "index.js",
+  "license": "GPL-3.0",
+  "bin": {
+    "geeko": "index.js"
+  },
+  "dependencies": {
+    "chalk": "2.4",
+    "cli-spinners": "^2.7.0",
+    "figlet": "^1.5.2",
+    "node-wget": "^0.4.3",
+    "prompt-sync": "^4.2.0",
+    "prompt-sync-history": "^1.0.1",
+    "shelljs": "^0.8.5",
+    "yargs": "^17.5.1"
+  }
+}
