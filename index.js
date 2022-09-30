@@ -55,7 +55,7 @@ if (arguments.init){
         wget({url: "https://download.opensuse.org/ports/armv6hl/tumbleweed/appliances/openSUSE-Tumbleweed-ARM-JeOS.armv6-rootfs.armv6l.tar.xz", dest: chrootDir});
         break;
     default:
-    console.log('Please put in a valid flavour');
+    console.log('Please put in a valid flavour:\n(TumbleWeed-AARCH64 | TumbleWeed-ARMv7 | Leap-AARCH64 | Leap-ARMv7 | TumbleWeed-ARMv6)');
     }
     prompt.history.save() //save history back to file
 }
