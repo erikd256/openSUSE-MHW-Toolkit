@@ -34,7 +34,7 @@ if (arguments.init){
     shell.mkdir(chrootDir+"/config");
     shell.mkdir(chrootDir+"/build");
     shell.mkdir(chrootDir+"/install");
-    if (shell.exec("git clone https://github.com/erikd256/openSUSE-MHW.git " + chrootDir, {silent:true})!==0){
+    if (shell.exec("git clone https://github.com/erikd256/openSUSE-MHW.git " + chrootDir+"/sources", {silent:true})!==0){
         console.log("git clone failed");
     };
     var flavour = prompt("Flavour used for device (TumbleWeed-AARCH64 | TumbleWeed-ARMv7 | Leap-AARCH64 | Leap-ARMv7 | TumbleWeed-ARMv6) : ");
